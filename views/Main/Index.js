@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, Image, TouchableOpacity } from 'react-native';
+import { Text, View, Image, TouchableOpacity, TextInput } from 'react-native';
 import mainStyles from './Styles';
 
 export default function Main({navigation, route}) {
+
+  const [numberPrimary, setNumberPrimary] = useState(null)
+  const [ numberSecound, setNumberSecound] = useState(null)
 
    // Chama pagina PagePlay.JS
    const prox = () => {
     navigation.reset({
       index: 0,
-      routes: [{ name: "PagePlay" }],
+      routes: [{ name: "PagePlay",
+      // Passando parametros para outra tela. 
+      params: {
+        numberPrimary: numberPrimary,
+        numberSecound: numberSecound,
+      },
+     }],
     });
   };
 
@@ -26,6 +35,13 @@ export default function Main({navigation, route}) {
 
       <View style={mainStyles.viewOne}>
         <Text style={mainStyles.titleText}>Olá,<Text style={mainStyles.titleTextName}> {userName}</Text>! Agora me conte de qual á qual número você quer fazer conta.</Text>
+
+        <View style={mainStyles.viewInput}>
+          <Text style={mainStyles.textInput}>DE</Text>
+          <TextInput style={mainStyles.numberInput} onChangeText={(text) => setNumberPrimary(text)} keyboardType={'number-pad'}></TextInput>
+          <Text style={mainStyles.textInputA}>A</Text>
+          <TextInput style={mainStyles.numberInput} onChangeText={(text) => setNumberSecound(text)} keyboardType={'number-pad'}></TextInput>
+        </View>
 
         <TouchableOpacity style={mainStyles.btnProx} onPress={prox}>
           <Text style={mainStyles.btnText}>Próximo</Text>

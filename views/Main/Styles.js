@@ -28,11 +28,36 @@ const mainStyles = StyleSheet.create({
     color: '#27353E',
     fontSize: 18,
     marginTop: 85,
-    marginBottom: 99,
+    marginBottom: 74,
     textAlign: 'center',
   },
   titleTextName: {
     fontWeight: 'bold',
+  },
+  viewInput: {
+    flexDirection: 'row',
+    marginBottom: 74,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textInput: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginRight: 19,
+  },
+  textInputA: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginLeft: 19,
+    marginRight: 19,
+  },
+  numberInput: {
+    backgroundColor: '#F6F5FA',
+    width: 80,
+    height: 50,
+    borderRadius: 8,
+    color: '#27353E',
+    textAlign: 'center',
   },
   btnProx: {
     width: 290,

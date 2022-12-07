@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './views/Home/Index';
 import Main from './views/Main/Index';
+import PagePlay from './views/PagePlay/Index';
 
 
 const Stack = createNativeStackNavigator();
@@ -22,15 +23,20 @@ function MyStack() {
 
       <Stack.Screen
         options={{
-          title: 'Ola',
+          title: '',
           headerTransparent: true,
           headerShown: false,
-          headerStyle: {
-            backgroundColor: '#1630C2',
-            height: 200,
-          },
         }}
         name='Main' component={Main}
+      />
+
+      <Stack.Screen
+        options={{
+          title: '',
+          headerTransparent: true,
+          headerShown: false,
+        }}
+        name='PagePlay' component={PagePlay}
       />
 
     </Stack.Navigator>
