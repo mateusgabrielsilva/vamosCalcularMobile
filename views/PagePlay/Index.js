@@ -36,8 +36,28 @@ export default function Main({navigation, route}) {
   const randomNumberTwo =  getRandomIntTwo(numberPrimary, numberSecound)
   const resultSoma = randomNumberOne + randomNumberTwo
 
-  var scores = [1, 10, 2, 21];
-  scores.sort(); // [1, 10, 2, 21]
+  let dados = []
+  for(let i = 0; i <= 4; i++){
+    dados.push(
+      Math.floor(Math.random() * 100)
+    );
+  }
+  console.log(dados)
+
+  let result1 = dados[Math.floor(Math.random() * 5)]
+  let result2 = dados[Math.floor(Math.random() * 5)]
+  let result3 = dados[Math.floor(Math.random() * 5)]
+  let result4 = dados[Math.floor(Math.random() * 5)]
+  let result5 = dados[Math.floor(Math.random() * 5)]
+
+  let botaoAleatorio = [result1, result2, result3, result4, result5, resultSoma]
+
+
+
+
+  console.log()
+
+  
 
 
   return (
@@ -58,21 +78,21 @@ export default function Main({navigation, route}) {
 
         <View style={playStyles.buttonResult}>
           <TouchableOpacity style={playStyles.btnResult}>
-            <Text style={playStyles.btnText}>{resultSoma}</Text>
+            <Text style={playStyles.btnText}>{botaoAleatorio[Math.floor(Math.random() * 6)]}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={playStyles.btnResult}>
-            <Text style={playStyles.btnText}>{resultSoma}</Text>
+            <Text style={playStyles.btnText}>{botaoAleatorio[Math.floor(Math.random() * 6)]}</Text>
           </TouchableOpacity>
           
           <TouchableOpacity style={playStyles.btnResult}>
-            <Text style={playStyles.btnText}>{resultSoma}</Text>
+            <Text style={playStyles.btnText}>{botaoAleatorio[Math.floor(Math.random() * 6)]}</Text>
           </TouchableOpacity>
         </View>
 
         <View style={playStyles.buttonResult}>
           <TouchableOpacity style={playStyles.btnResult}>
-            <Text style={playStyles.btnText}>{resultSoma}</Text>
+            <Text style={playStyles.btnText}>{botaoAleatorio[Math.floor(Math.random() * 5)]}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={playStyles.btnResult}>
