@@ -5,6 +5,8 @@ import playStyles from './Styles';
 
 export default function Main({navigation, route}) {
 
+  const [buttonOne, setButtonOne] = useState(null)
+
 
   // Chama pagina PagePlay.JS
   const prox = () => {
@@ -34,31 +36,26 @@ export default function Main({navigation, route}) {
 
   const randomNumberOne =  getRandomIntOne(numberPrimary, numberSecound)
   const randomNumberTwo =  getRandomIntTwo(numberPrimary, numberSecound)
-  const resultSoma = randomNumberOne + randomNumberTwo
-
-  let dados = []
-  for(let i = 0; i <= 4; i++){
-    dados.push(
-      Math.floor(Math.random() * 100)
-    );
-  }
-  console.log(dados)
-
-  let result1 = dados[Math.floor(Math.random() * 5)]
-  let result2 = dados[Math.floor(Math.random() * 5)]
-  let result3 = dados[Math.floor(Math.random() * 5)]
-  let result4 = dados[Math.floor(Math.random() * 5)]
-  let result5 = dados[Math.floor(Math.random() * 5)]
-
-  let botaoAleatorio = [result1, result2, result3, result4, result5, resultSoma]
-
-
-
-
-  console.log()
-
   
 
+
+  const result1 = Math.floor(Math.random() * (numberSecound - numberPrimary + 5))
+  const result2 = Math.floor(Math.random() * (numberSecound - numberPrimary + 5))
+  const result3 = Math.floor(Math.random() * (numberSecound - numberPrimary + 5))
+  const result4 = Math.floor(Math.random() * (numberSecound - numberPrimary + 5))
+  const result5 = Math.floor(Math.random() * (numberSecound - numberPrimary + 5))
+  const resultSoma = randomNumberOne + randomNumberTwo
+
+  var vetor = [result1, result2, result3, result4, result5, resultSoma]
+
+  // Algoritmo de embaralhamento 
+  function embaralhar(array) {
+    for(var i = array.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
 
   return (
 
@@ -77,32 +74,34 @@ export default function Main({navigation, route}) {
         </View>
 
         <View style={playStyles.buttonResult}>
-          <TouchableOpacity style={playStyles.btnResult}>
-            <Text style={playStyles.btnText}>{botaoAleatorio[Math.floor(Math.random() * 6)]}</Text>
+          <TouchableOpacity style={playStyles.btnResult} value="100" onChangeText={(value) => setButtonOne(value)}>
+            <Text style={playStyles.btnText}>{embaralhar(vetor[0])}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={playStyles.btnResult}>
-            <Text style={playStyles.btnText}>{botaoAleatorio[Math.floor(Math.random() * 6)]}</Text>
+            <Text style={playStyles.btnText}>{embaralhar(vetor[1])}</Text>
           </TouchableOpacity>
           
           <TouchableOpacity style={playStyles.btnResult}>
-            <Text style={playStyles.btnText}>{botaoAleatorio[Math.floor(Math.random() * 6)]}</Text>
+            <Text style={playStyles.btnText}>{embaralhar(vetor[2])}</Text>
           </TouchableOpacity>
         </View>
 
         <View style={playStyles.buttonResult}>
           <TouchableOpacity style={playStyles.btnResult}>
-            <Text style={playStyles.btnText}>{botaoAleatorio[Math.floor(Math.random() * 5)]}</Text>
+            <Text style={playStyles.btnText}>{embaralhar(vetor[3])}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={playStyles.btnResult}>
-            <Text style={playStyles.btnText}>{resultSoma}</Text>
+            <Text style={playStyles.btnText}>{embaralhar(vetor[4])}</Text>
           </TouchableOpacity>
           
           <TouchableOpacity style={playStyles.btnResult}>
-            <Text style={playStyles.btnText}>{resultSoma}</Text>
+            <Text style={playStyles.btnText}>{embaralhar(vetor[5])}</Text>
           </TouchableOpacity>
         </View>
+
+        <Text>{buttonOne}</Text>
 
         
       </View>
