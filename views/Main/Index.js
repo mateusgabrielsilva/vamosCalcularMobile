@@ -8,8 +8,8 @@ export default function Main({navigation, route}) {
   const [numberPrimary, setNumberPrimary] = useState(null)
   const [ numberSecound, setNumberSecound] = useState(null)
 
-   // Chama pagina PagePlay.JS
-   const prox = () => {
+  // Chama pagina PagePlay.JS
+  const prox = () => {
     navigation.reset({
       index: 0,
       routes: [{ name: "PagePlay",

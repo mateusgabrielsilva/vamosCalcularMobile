@@ -5,10 +5,15 @@ import playStyles from './Styles';
 
 export default function Main({navigation, route}) {
 
-  const [buttonOne, setButtonOne] = useState(null)
+  const [numberTest, setNumberPrimary] = useState(null)
 
+  // Verifica resultado do botao clicado
+  const result = () => {
+    //const paramResult = param
+    console.log('clicou ')
+  };
 
-  // Chama pagina PagePlay.JS
+  // Chama alguma pagina
   const prox = () => {
     navigation.reset({
       index: 0,
@@ -16,7 +21,7 @@ export default function Main({navigation, route}) {
     });
   };
 
-  // Recebendo valor recebido da outra pagina
+  // Recebendo valor da outra pagina
   const numberPrimary = route.params.numberPrimary
   const numberSecound = route.params.numberSecound
 
@@ -46,16 +51,20 @@ export default function Main({navigation, route}) {
   const result5 = Math.floor(Math.random() * (numberSecound - numberPrimary + 5))
   const resultSoma = randomNumberOne + randomNumberTwo
 
-  var vetor = [result1, result2, result3, result4, result5, resultSoma]
-
   // Algoritmo de embaralhamento 
   function embaralhar(array) {
-    for(var i = array.length - 1; i > 0; i--){
+    for(let i = array.length - 1; i > 0; i--){
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
   }
+
+  var vetor = [result1, result2, result3, result4, result5, resultSoma];
+
+  console.log(embaralhar(vetor))
+
+  // Consultando botao pertado 
 
   return (
 
@@ -74,11 +83,11 @@ export default function Main({navigation, route}) {
         </View>
 
         <View style={playStyles.buttonResult}>
-          <TouchableOpacity style={playStyles.btnResult} value="100" onChangeText={(value) => setButtonOne(value)}>
+          <TouchableOpacity style={playStyles.btnResult}>
             <Text style={playStyles.btnText}>{embaralhar(vetor[0])}</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={playStyles.btnResult}>
+          <TouchableOpacity style={playStyles.btnResult} onPress={result} >
             <Text style={playStyles.btnText}>{embaralhar(vetor[1])}</Text>
           </TouchableOpacity>
           
@@ -101,8 +110,7 @@ export default function Main({navigation, route}) {
           </TouchableOpacity>
         </View>
 
-        <Text>{buttonOne}</Text>
-
+        <Text>{numberTest}</Text>
         
       </View>
       <StatusBar style="light" />
