@@ -5,14 +5,6 @@ import playStyles from './Styles';
 
 export default function Main({navigation, route}) {
 
-  const [numberTest, setNumberPrimary] = useState(null)
-
-  // Verifica resultado do botao clicado
-  const result = () => {
-    //const paramResult = param
-    console.log('clicou ')
-  };
-
   // Chama alguma pagina
   const prox = () => {
     navigation.reset({
@@ -64,7 +56,34 @@ export default function Main({navigation, route}) {
 
   console.log(embaralhar(vetor))
 
-  // Consultando botao pertado 
+  // Verifica resultado do botao clicado
+  function result(valor) {
+    
+    var valorParametro = valor
+  
+    if(valor == resultSoma) {
+      setResultadoFinal('Parabéns! Você acertou o resultado.')
+      setTimeout(function(){
+        setResultadoFinal('')
+      }, 3000);
+      setCount(prevCount => prevCount + 1)
+    }else {
+      setResultadoFinal('Poxa, infelizmente não é esse o resultado correto.')
+      setTimeout(function(){
+        setResultadoFinal('')
+      }, 3000);
+    }
+    
+    return valorParametro
+  }
+
+  var [resultadoFinal, setResultadoFinal] = useState(null)
+
+  const [count, setCount] = useState(0)
+  console.log(count)
+
+
+
 
   return (
 
@@ -83,34 +102,34 @@ export default function Main({navigation, route}) {
         </View>
 
         <View style={playStyles.buttonResult}>
-          <TouchableOpacity style={playStyles.btnResult}>
+          <TouchableOpacity style={playStyles.btnResult} onPress={function() {result(embaralhar(vetor[0]))}}>
             <Text style={playStyles.btnText}>{embaralhar(vetor[0])}</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={playStyles.btnResult} onPress={result} >
+          <TouchableOpacity style={playStyles.btnResult} onPress={function() {result(embaralhar(vetor[1]))}}>
             <Text style={playStyles.btnText}>{embaralhar(vetor[1])}</Text>
           </TouchableOpacity>
           
-          <TouchableOpacity style={playStyles.btnResult}>
+          <TouchableOpacity style={playStyles.btnResult} onPress={function() {result(embaralhar(vetor[2]))}}>
             <Text style={playStyles.btnText}>{embaralhar(vetor[2])}</Text>
           </TouchableOpacity>
         </View>
 
         <View style={playStyles.buttonResult}>
-          <TouchableOpacity style={playStyles.btnResult}>
+          <TouchableOpacity style={playStyles.btnResult} onPress={function() {result(embaralhar(vetor[3]))}}>
             <Text style={playStyles.btnText}>{embaralhar(vetor[3])}</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={playStyles.btnResult}>
+          <TouchableOpacity style={playStyles.btnResult} onPress={function() {result(embaralhar(vetor[4]))}}>
             <Text style={playStyles.btnText}>{embaralhar(vetor[4])}</Text>
           </TouchableOpacity>
           
-          <TouchableOpacity style={playStyles.btnResult}>
+          <TouchableOpacity style={playStyles.btnResult} onPress={function() {result(embaralhar(vetor[5]))}}>
             <Text style={playStyles.btnText}>{embaralhar(vetor[5])}</Text>
           </TouchableOpacity>
         </View>
 
-        <Text>{numberTest}</Text>
+        <Text>{resultadoFinal}</Text>
         
       </View>
       <StatusBar style="light" />
