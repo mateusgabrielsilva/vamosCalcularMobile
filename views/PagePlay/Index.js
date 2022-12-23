@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, Image, TouchableOpacity } from 'react-native';
-import { useFonts, ComicNeue_400Regular } from '@expo-google-fonts/comic-neue';
+import { useFonts, ComicNeue_400Regular, ComicNeue_700Bold } from '@expo-google-fonts/comic-neue';
 import playStyles from './Styles';
 
 export default function Main({navigation, route}) {
@@ -85,6 +85,7 @@ export default function Main({navigation, route}) {
 
   const [fontLoaded] = useFonts({
     ComicNeue_400Regular,
+    ComicNeue_700Bold,
   });
 
   if (!fontLoaded) {
@@ -136,7 +137,7 @@ export default function Main({navigation, route}) {
           </TouchableOpacity>
         </View>
 
-        <Text>{resultadoFinal}</Text>
+        <Text style={playStyles.textResultadoFinal}>{resultadoFinal}</Text>
         
       </View>
       <StatusBar style="light" />

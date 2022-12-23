@@ -71,6 +71,11 @@ const playStyles = StyleSheet.create({
     fontFamily: 'ComicNeue_400Regular',
     fontWeight: 'bold',
   },
+  textResultadoFinal: {
+    fontFamily: 'ComicNeue_700Bold',
+    fontSize: 16,
+    marginTop: 30,
+  },
 });
 
 export default playStyles
