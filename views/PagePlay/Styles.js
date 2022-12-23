@@ -30,6 +30,7 @@ const playStyles = StyleSheet.create({
     marginTop: 55,
     marginBottom: 25,
     textAlign: 'center',
+    fontFamily: 'ComicNeue_400Regular',
   },
   viewSoma: {
     flexDirection: 'row',
@@ -39,10 +40,12 @@ const playStyles = StyleSheet.create({
   },
   textSoma: {
     fontSize: 35,
+    fontFamily: 'ComicNeue_400Regular',
     fontWeight: 'bold',
   },
   operadorSoma: {
     fontSize: 30,
+    fontFamily: 'ComicNeue_400Regular',
     fontWeight: 'bold',
     marginHorizontal: 15,
   },
@@ -65,6 +68,7 @@ const playStyles = StyleSheet.create({
   },
   btnText: {
     fontSize: 25,
+    fontFamily: 'ComicNeue_400Regular',
     fontWeight: 'bold',
   },
 });

@@ -17,10 +17,12 @@ const homeStyles = StyleSheet.create({
     fontSize: 18,
     marginTop: 70,
     marginBottom: 99,
+    fontFamily: 'ComicNeue_400Regular',
   },
   nameText: {
     color: '#F6F5FA',
     fontSize: 18,
+    fontFamily: 'ComicNeue_400Regular',
   },
   textInput: {
     width: 290,
@@ -32,6 +34,7 @@ const homeStyles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 12,
     marginBottom: 29,
+    fontFamily: 'ComicNeue_400Regular',
   },
   btnProx: {
     width: 290,
@@ -50,6 +53,7 @@ const homeStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     fontSize: 22,
+    fontFamily: 'ComicNeue_400Regular',
   },
 
 });

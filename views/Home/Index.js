@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { ImageBackground, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import { useFonts, ComicNeue_400Regular } from '@expo-google-fonts/comic-neue';
 import homeStyles from './Styles';
 
 
@@ -22,6 +23,14 @@ export default function Home({navigation}) {
       }],
     });
   };
+
+  const [fontLoaded] = useFonts({
+    ComicNeue_400Regular,
+  });
+
+  if (!fontLoaded) {
+    return null;
+  }
 
   return (
 

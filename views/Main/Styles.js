@@ -30,8 +30,10 @@ const mainStyles = StyleSheet.create({
     marginTop: 85,
     marginBottom: 74,
     textAlign: 'center',
+    fontFamily: 'ComicNeue_400Regular',
   },
   titleTextName: {
+    fontFamily: 'ComicNeue_700Bold',
     fontWeight: 'bold',
   },
   viewInput: {
@@ -39,14 +41,18 @@ const mainStyles = StyleSheet.create({
     marginBottom: 74,
     justifyContent: 'center',
     alignItems: 'center',
+    fontFamily: 'ComicNeue_400Regular',
   },
   textInput: {
     fontSize: 20,
+    fontFamily: 'ComicNeue_400Regular',
     fontWeight: 'bold',
     marginRight: 19,
+    fontFamily: 'ComicNeue_400Regular',
   },
   textInputA: {
     fontSize: 20,
+    fontFamily: 'ComicNeue_400Regular',
     fontWeight: 'bold',
     marginLeft: 19,
     marginRight: 19,
@@ -58,6 +64,7 @@ const mainStyles = StyleSheet.create({
     borderRadius: 8,
     color: '#27353E',
     textAlign: 'center',
+    fontFamily: 'ComicNeue_400Regular',
   },
   btnProx: {
     width: 290,
@@ -77,6 +84,7 @@ const mainStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     fontSize: 22,
+    fontFamily: 'ComicNeue_400Regular',
   },
 });
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, Image, TouchableOpacity, TextInput } from 'react-native';
+import { useFonts, ComicNeue_400Regular, ComicNeue_700Bold } from '@expo-google-fonts/comic-neue';
 import mainStyles from './Styles';
 
 export default function Main({navigation, route}) {
@@ -24,6 +25,15 @@ export default function Main({navigation, route}) {
 
   // Recebendo valor recebido da outra pagina
   const userName = route.params.user
+
+  const [fontLoaded] = useFonts({
+    ComicNeue_400Regular,
+    ComicNeue_700Bold,
+  });
+
+  if (!fontLoaded) {
+    return null;
+  }
 
 
   return (
