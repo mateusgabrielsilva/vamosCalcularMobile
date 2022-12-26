@@ -14,7 +14,7 @@ export default function Main({navigation, route}) {
     });
   };
 
-  // Recebendo valor da outra pagina
+  // Recebendo dados da pagina Main
   const numberPrimary = route.params.numberPrimary
   const numberSecound = route.params.numberSecound
 
@@ -69,9 +69,9 @@ export default function Main({navigation, route}) {
       }, 3000);
       setCount(prevCount => prevCount + 1)
     }else {
-      setResultadoFinal('Poxa, infelizmente não é esse o resultado correto.')
+      setResultadoFinalErrado('Poxa, infelizmente não é esse o resultado correto.')
       setTimeout(function(){
-        setResultadoFinal('')
+        setResultadoFinalErrado('')
       }, 3000);
     }
     
@@ -79,6 +79,7 @@ export default function Main({navigation, route}) {
   }
 
   var [resultadoFinal, setResultadoFinal] = useState(null)
+  var [resultadoFinalErrado, setResultadoFinalErrado] = useState(null)
 
   const [count, setCount] = useState(0)
   console.log(count)
@@ -138,6 +139,7 @@ export default function Main({navigation, route}) {
         </View>
 
         <Text style={playStyles.textResultadoFinal}>{resultadoFinal}</Text>
+        <Text style={playStyles.textResultadoFinalErrado}>{resultadoFinalErrado}</Text>
         
       </View>
       <StatusBar style="light" />

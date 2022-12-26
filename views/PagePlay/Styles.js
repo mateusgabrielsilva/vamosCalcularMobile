@@ -27,7 +27,7 @@ const playStyles = StyleSheet.create({
   titleText: {
     color: '#27353E',
     fontSize: 18,
-    marginTop: 55,
+    marginTop: 35,
     marginBottom: 25,
     textAlign: 'center',
     fontFamily: 'ComicNeue_400Regular',
@@ -75,6 +75,13 @@ const playStyles = StyleSheet.create({
     fontFamily: 'ComicNeue_700Bold',
     fontSize: 16,
     marginTop: 30,
+    color: '#2BFC4F',
+  },
+  textResultadoFinalErrado: {
+    fontFamily: 'ComicNeue_700Bold',
+    fontSize: 16,
+    marginTop: 10,
+    color: '#E01903',
   },
 });
 

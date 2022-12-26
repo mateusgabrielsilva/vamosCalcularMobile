@@ -23,7 +23,7 @@ export default function Main({navigation, route}) {
     });
   };
 
-  // Recebendo valor recebido da outra pagina
+  // Recebendo dados da pagina Home
   const userName = route.params.user
 
   const [fontLoaded] = useFonts({
