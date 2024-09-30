@@ -59,24 +59,27 @@ export default function Main({navigation, route}) {
 
   // Verifica resultado do botao clicado
   function result(valor) {
-    
-    var valorParametro = valor
+    var valorParametro = valor;
   
-    if(valor == resultSoma) {
-      setResultadoFinal('Parabéns! Você acertou o resultado.')
+    if (valor == resultSoma) {
+      setResultadoFinal('Parabéns! Você acertou o resultado.');
       setTimeout(function(){
-        setResultadoFinal('')
+        setResultadoFinal('');
       }, 3000);
-      setCount(prevCount => prevCount + 1)
-    }else {
-      setResultadoFinalErrado('Poxa, infelizmente não é esse o resultado correto.')
+      setCount(prevCount => {
+        console.log(prevCount); // Log do valor anterior de count
+        return prevCount + 1;   // Incrementa o count
+      });
+    } else {
+      setResultadoFinalErrado('Poxa, infelizmente não é esse o resultado correto.');
       setTimeout(function(){
-        setResultadoFinalErrado('')
+        setResultadoFinalErrado('');
       }, 3000);
     }
-    
-    return valorParametro
+  
+    return valorParametro;
   }
+  
 
   var [resultadoFinal, setResultadoFinal] = useState(null)
   var [resultadoFinalErrado, setResultadoFinalErrado] = useState(null)
