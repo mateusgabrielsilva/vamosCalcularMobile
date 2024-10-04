@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "Jogo da Soma",
-    "slug": "jogodasoma",
-    "version": "1.0.0",
+    "name": "Vamos Cálcular",
+    "slug": "vamoscalcular",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#1630C2"
+      "backgroundColor": "#2C2E56"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -25,14 +25,14 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.jogodasoma.myapp"
+      "package": "com.br.mateusgabrieldev"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "a09da8c8-f67b-4278-9561-443b4f8e8565"
+        "projectId": "8db494af-5c41-47d5-afab-5e415874d424"
       }
     }
   }

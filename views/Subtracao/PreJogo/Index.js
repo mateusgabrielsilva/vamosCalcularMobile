@@ -16,10 +16,10 @@ import {
   ComicNeue_400Regular,
   ComicNeue_700Bold,
 } from "@expo-google-fonts/comic-neue";
-import Header from "../../components/Header/Index";
+import Header from "../../../components/Header/Index";
 import mainStyles from "./Styles";
 
-export default function Main({ navigation }) {
+export default function PreJogo({ navigation }) {
   const [numberPrimary, setNumberPrimary] = useState(null);
   const [numberSecound, setNumberSecound] = useState(null);
   const [nomeUsuario, setNomeUsuario] = useState("");
@@ -30,7 +30,7 @@ export default function Main({ navigation }) {
       index: 0,
       routes: [
         {
-          name: "PagePlay",
+          name: "JogoSubtracao",
           // Passando parametros para outra tela.
           params: {
             numberPrimary: numberPrimary,
@@ -83,7 +83,7 @@ export default function Main({ navigation }) {
         <Header localReturn="Menu"/>
 
         <View style={mainStyles.viewOne}>
-          <Text style={mainStyles.titleTipoOperacao}>Legal, vamos somar</Text>
+          <Text style={mainStyles.titleTipoOperacao}>Legal, vamos subtrair</Text>
 
           <Text style={mainStyles.titleText}>
             <Text style={mainStyles.titleTextName}> {nomeUsuario}</Text>, agora

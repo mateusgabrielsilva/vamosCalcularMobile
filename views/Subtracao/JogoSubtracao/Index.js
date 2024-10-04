@@ -7,12 +7,13 @@ import {
   ComicNeue_700Bold,
 } from "@expo-google-fonts/comic-neue";
 import playStyles from "./Styles";
-import Header from "../../components/Header/Index";
+import Header from "../../../components/Header/Index";
+//import Header from "../../components/Header/Index";
 
-export default function Main({ navigation, route }) {
+export default function JogoSubtracao({ navigation, route }) {
   const [randomNumberOne, setRandomNumberOne] = useState(null);
   const [randomNumberTwo, setRandomNumberTwo] = useState(null);
-  const [resultSoma, setResultSoma] = useState(null);
+  const [resultSub, setResultSub] = useState(null); // Mudou para resultado da subtração
   const [vetor, setVetor] = useState([]);
 
   const numberPrimary = route.params.numberPrimary;
@@ -20,22 +21,30 @@ export default function Main({ navigation, route }) {
 
   // Função para gerar números aleatórios e calcular resultados
   function generateNewNumbers() {
+    // Gera dois números aleatórios
     const newRandomNumberOne = getRandomInt(numberPrimary, numberSecound);
     const newRandomNumberTwo = getRandomInt(numberPrimary, numberSecound);
-    const newResultSoma = newRandomNumberOne + newRandomNumberTwo;
+
+    // Aqui usamos a subtração em vez da soma
+    const newResultSub = newRandomNumberOne - newRandomNumberTwo;
+
+    // Garantir que o resultado não seja menor ou igual a zero
+    if (newResultSub <= 0) {
+      return generateNewNumbers(); // Chama novamente se o resultado for inválido
+    }
 
     const newResults = [];
     for (let i = 0; i < 5; i++) {
-      newResults.push(getRandomNearResult(newResultSoma, 5));
+      newResults.push(getRandomNearResult(newResultSub, 5));
     }
 
-    const newVetor = [...newResults, newResultSoma];
+    const newVetor = [...newResults, newResultSub];
     embaralhar(newVetor);
 
     // Atualiza estados com novos números e resultados
     setRandomNumberOne(newRandomNumberOne);
     setRandomNumberTwo(newRandomNumberTwo);
-    setResultSoma(newResultSoma);
+    setResultSub(newResultSub); // Muda para usar a subtração
     setVetor(newVetor);
   }
 
@@ -73,7 +82,7 @@ export default function Main({ navigation, route }) {
   const [buttonColors, setButtonColors] = useState(Array(6).fill("#F6F5FA"));
 
   function result(valor, index) {
-    if (valor == resultSoma) {
+    if (valor == resultSub) {
       setResultadoFinal("Parabéns! Você acertou o resultado.");
       setButtonColors((prevColors) => {
         const newColors = [...prevColors];
@@ -114,7 +123,7 @@ export default function Main({ navigation, route }) {
   return (
     <View style={playStyles.container}>
       <StatusBar style="light" />
-      <Header localReturn="Main" />
+      <Header localReturn="PreJogo" />
       <View style={playStyles.viewOne}>
         <View style={playStyles.placarSoma}>
           <Text style={playStyles.titleTextPlacar}>Acertos: {count}</Text>
@@ -125,7 +134,7 @@ export default function Main({ navigation, route }) {
 
         <View style={playStyles.viewSoma}>
           <Text style={playStyles.textSoma}>{randomNumberOne}</Text>
-          <Text style={playStyles.operadorSoma}>+</Text>
+          <Text style={playStyles.operadorSoma}>-</Text>
           <Text style={playStyles.textSoma}>{randomNumberTwo}</Text>
         </View>
 
