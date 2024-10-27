@@ -12,7 +12,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { loginUser } from "../../services/api";
+import { loginUser, getUser } from "../../services/api";
 import {
   useFonts,
   ComicNeue_400Regular,
@@ -34,23 +34,22 @@ export default function Login({ navigation }) {
       const response = await loginUser(userData);
 
       if (response.status == 200) {
-        Alert.alert(
-          "Sucesso",
-          `Usuário logado com sucesso, seu Id é ${response.data.id}`,
-          [{ text: "Ok" }]
-        );
+        const responseApiGetUser = await getUser(response.data.id);
+        if (responseApiGetUser.status == 200) {
+          navigation.replace("MainTabs", { userData: responseApiGetUser.data });
+        }else {
+          Alert.alert("Erro", `Usuário não encontrado na base.`, [
+            { text: "Ok" },
+          ]);
+        }
       } else if (response.status == 404) {
-        Alert.alert(
-          "Erro",
-          `Usuário não encontrado na base.`,
-          [{ text: "Ok" }]
-        );
+        Alert.alert("Erro", `Usuário não encontrado na base.`, [
+          { text: "Ok" },
+        ]);
       } else {
-        Alert.alert(
-          "Erro",
-          'Algo deu errado. Por favor, tente novamente.',
-          [{ text: "Ok" }]
-        );
+        Alert.alert("Erro", "Algo deu errado. Por favor, tente novamente.", [
+          { text: "Ok" },
+        ]);
       }
     } catch (error) {
       console.error(

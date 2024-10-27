@@ -20,7 +20,7 @@ export async function loginUser(loginData) {
     const response = await axios.post(`${API_URL}/auth/login`, loginData);
     return response;
   } catch (error) {
-    console.error("Erro ao criar usuário:", error);
+    console.error("Erro ao fazer login", error);
     throw error;
   }
 }
@@ -29,7 +29,7 @@ export async function loginUser(loginData) {
 export async function getUser(userId) {
   try {
     const response = await axios.get(`${API_URL}/users/${userId}`);
-    return response.data;
+    return response;
   } catch (error) {
     console.error("Erro ao buscar usuário:", error);
     throw error;

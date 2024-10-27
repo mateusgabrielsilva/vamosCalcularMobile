@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./views/Login/Index";
 import SignUp from "./views/SignUp/Index";
+import MainTabs from "./navigation/MainTabs";
 import * as SplashScreen from "expo-splash-screen";
 
 // Mantenha a splash screen visível
@@ -31,6 +32,14 @@ function MyStack() {
         }}
         name="SignUp"
         component={SignUp}
+      />
+
+      <Stack.Screen
+        name="MainTabs"
+        component={MainTabs}
+        options={{
+          headerShown: false,
+        }}
       />
     </Stack.Navigator>
   );
