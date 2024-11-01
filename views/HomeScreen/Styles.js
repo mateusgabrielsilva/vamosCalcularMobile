@@ -47,6 +47,7 @@ const homeScreenStyles = StyleSheet.create({
     justifyContent: "space-between",
     alignContent: "center",
     alignItems: "center",
+    marginBottom: 15,
   },
   viewTitleExerciciesSoma: {
     flexDirection: "row",
