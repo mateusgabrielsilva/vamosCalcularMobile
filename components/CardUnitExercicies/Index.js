@@ -3,12 +3,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import * as Progress from "react-native-progress";
 
 const CardUnitExercicies = ({ unit, progresso, onPress }) => {
-
-  const [progress, setProgress] = useState(0.4); // Inicia com 40%
-
-  const increaseProgress = () => {
-    setProgress((prev) => Math.min(prev + 0.1, 1)); // Incrementa o progresso até 100%
-  };
+  const [progress, setProgress] = useState(0.75);
 
   if (unit == "bloqued") {
     return (
@@ -24,19 +19,25 @@ const CardUnitExercicies = ({ unit, progresso, onPress }) => {
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={onPress}>
       <View style={styles.iconContainer}>
-        <Text style={styles.unitText}>{unit}</Text>
-        <Text style={styles.text}>Progresso: {(progress * 100).toFixed(0)}%</Text>
-      <Progress.Bar 
-        progress={progress} 
-        width={50} 
-        height={15} // Alterando altura
-        color="#ECC055" // Cor personalizada
-        borderColor="#1b5e20" // Cor da borda
-        borderWidth={2} // Largura da borda
-        borderRadius={8} // Arredondando as bordas
-        unfilledColor="#e0e0e0" // Cor do espaço vazio
-        animationType="spring" // Animação mais suave
-      />
+        <View style={styles.viewCard}>
+          <View>
+            <Text style={styles.unitText}>{unit}</Text>
+          </View>
+          <View style={styles.viewProgress}>
+            <Text style={styles.text}>
+              Progresso: {(progress * 100).toFixed(0)}%
+            </Text>
+            <Progress.Bar
+              progress={progress}
+              width={100}
+              height={10} // Alterando altura
+              color="#41AC78" // Cor personalizada
+              borderRadius={8} // Arredondando as bordas
+              unfilledColor="#C4C4C4" // Cor do espaço vazio
+              animationType="spring" // Animação mais suave
+            />
+          </View>
+        </View>
       </View>
     </TouchableOpacity>
   );
@@ -63,6 +64,11 @@ const styles = StyleSheet.create({
   unitText: {
     color: "#000000",
     fontSize: 22,
+  },
+  viewCard: {
+    flexDirection: "column",
+    justifyContent: "space-between",
+    height: "100%",
   },
 });
 
