@@ -37,10 +37,12 @@ const homeScreenStyles = StyleSheet.create({
 
   viewScrow: {
     padding: 20,
-    marginTop: 12,
   },
   viewSoma: {
 
+  },
+  viewOperacoes: {
+    marginTop: 30,
   },
   viewTitleSoma: {
     flexDirection: "row",

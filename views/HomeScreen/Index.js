@@ -27,6 +27,18 @@ export default function HomeScreen({ navigation, route }) {
   const maxExercicies = 60;
   const exerciciesOk = 18;
 
+  // Calculo de subtração
+  const maxSubtracao = 60;
+  const acertosSubtracao = 0;
+
+  // Calculo de multiplicacao
+  const maxMultiplicacao = 60;
+  const acertosMultiplicacao = 0;
+
+  // Calculo de divisao
+  const maxDivisao = 60;
+  const acertosDivisao = 0;
+
   return (
     <KeyboardAvoidingView
       style={homeScreenStyles.container}
@@ -45,7 +57,8 @@ export default function HomeScreen({ navigation, route }) {
       </View>
       <ScrollView>
         <View style={homeScreenStyles.viewScrow}>
-          <View style={homeScreenStyles.viewSoma}>
+          {/* Card Soma */}
+          <View style={homeScreenStyles.viewOperacoes}>
             <View style={homeScreenStyles.viewTitleSoma}>
               <Text style={homeScreenStyles.textTitleSoma}>Soma</Text>
 
@@ -66,6 +79,73 @@ export default function HomeScreen({ navigation, route }) {
             </View>
 
           </View>
+
+          {/* Card Subtração */}
+          <View style={homeScreenStyles.viewOperacoes}>
+            <View style={homeScreenStyles.viewTitleSoma}>
+              <Text style={homeScreenStyles.textTitleSoma}>Subtração</Text>
+
+              <View style={homeScreenStyles.viewTitleExerciciesSoma}>
+                <Image
+                  source={require("../../assets/coroa.png")}
+                  style={{ height: 21, width: 25 }}
+                />
+                <Text style={homeScreenStyles.textExerciciesSoma}>
+                  {acertosSubtracao}/{maxSubtracao}
+                </Text>
+              </View>
+            </View>
+
+            <View style={homeScreenStyles.cardExercicies}>
+              <CardUnitExercicies unit="bloqued" />
+              <CardUnitExercicies unit="bloqued" />
+            </View>
+          </View>
+
+          {/* Card Multiplicação */}
+          <View style={homeScreenStyles.viewOperacoes}>
+            <View style={homeScreenStyles.viewTitleSoma}>
+              <Text style={homeScreenStyles.textTitleSoma}>Multiplicação</Text>
+
+              <View style={homeScreenStyles.viewTitleExerciciesSoma}>
+                <Image
+                  source={require("../../assets/coroa.png")}
+                  style={{ height: 21, width: 25 }}
+                />
+                <Text style={homeScreenStyles.textExerciciesSoma}>
+                  {acertosMultiplicacao}/{maxMultiplicacao}
+                </Text>
+              </View>
+            </View>
+
+            <View style={homeScreenStyles.cardExercicies}>
+              <CardUnitExercicies unit="bloqued" />
+              <CardUnitExercicies unit="bloqued" />
+            </View>
+          </View>
+
+          {/* Card Divisão */}
+          <View style={homeScreenStyles.viewOperacoes}>
+            <View style={homeScreenStyles.viewTitleSoma}>
+              <Text style={homeScreenStyles.textTitleSoma}>Divisão</Text>
+
+              <View style={homeScreenStyles.viewTitleExerciciesSoma}>
+                <Image
+                  source={require("../../assets/coroa.png")}
+                  style={{ height: 21, width: 25 }}
+                />
+                <Text style={homeScreenStyles.textExerciciesSoma}>
+                  {acertosDivisao}/{maxDivisao}
+                </Text>
+              </View>
+            </View>
+
+            <View style={homeScreenStyles.cardExercicies}>
+              <CardUnitExercicies unit="bloqued" />
+              <CardUnitExercicies unit="bloqued" />
+            </View>
+          </View>
+
         </View>
       </ScrollView>
     </KeyboardAvoidingView>

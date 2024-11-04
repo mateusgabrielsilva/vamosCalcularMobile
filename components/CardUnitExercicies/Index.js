@@ -5,6 +5,14 @@ import * as Progress from "react-native-progress";
 const CardUnitExercicies = ({ unit, progresso, onPress }) => {
   const [progress, setProgress] = useState(0.75);
 
+  const increaseProgress = () => {
+    setProgress((prev) => Math.min(prev + 0.1, 1)); // Aumenta até 100%
+  };
+
+  const decreaseProgress = () => {
+    setProgress((prev) => Math.max(prev - 0.1, 0)); // Diminui até 0%
+  };
+
   if (unit == "bloqued") {
     return (
       <TouchableOpacity
